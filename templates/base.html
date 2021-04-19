@@ -20,17 +20,33 @@
 
 		<section id="main_content">
         {% block searchbar %}{% endblock %}
+
+		{% for message in get_flashed_messages() %}
+        <div class="alert">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			{{ message }}
+		</div>
+    	{% endfor %}
+
 		{% block searchresults %}{% endblock %}
 		</section>
 
 		<footer>
 			<span id="footer_cred">
-				By Bedkow
+				Frontend By Bedkow
 				<a href="https://github.com/Bedkow"
 					><img class="footer_pic1" alt="github" src="{{ url_for('static', filename='github_icon.png') }}"
 				/></a>
 
 				<a href="https://www.linkedin.com/in/bednarek-daniel/"
+					><img class="footer_pic2" alt="linkedin" src="{{ url_for('static', filename='linkedin_icon.png') }}"
+				/></a>
+				| Backend By Lewandowski
+				<a href="https://github.com/Lewandowski-commits"
+					><img class="footer_pic1" alt="github" src="{{ url_for('static', filename='github_icon.png') }}"
+				/></a>
+
+				<a href="https://www.linkedin.com/in/enrulewandowski/"
 					><img class="footer_pic2" alt="linkedin" src="{{ url_for('static', filename='linkedin_icon.png') }}"
 				/></a>
 			</span>
