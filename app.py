@@ -26,7 +26,7 @@ def game(game_name):
     filtered_df = filtered_df.iloc[:,0:1].sort_values('name')
 
     if filtered_df.shape[0] == 0:
-        flash('No games match your search')
+        flash(f'No games match your search: {game_name}')
         return redirect('/')
     else:
         return render_template('searchresults.html',
