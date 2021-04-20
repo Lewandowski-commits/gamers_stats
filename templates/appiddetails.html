@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block appiddetails %}
+
+<ol>
+{% for app in app_details_json['results'] %}
+
+    <li>App: {{ app }}</li>
+
+{% endfor %}
+</ol>
+
+<p>Data provided by <a href="rawg.io">rawg.io</a></p>
+
+{% endblock %}

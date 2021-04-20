@@ -19,23 +19,13 @@ def find():
         form_input = request.args.get('gameName')
         return redirect(url_for('game', game_name=form_input))
 
-@app.route('/search/<game_name>')
+@app.route('/game/<game_name>')
 def game(game_name):
-    game_name = game_name.lower()
-    filtered_df = df[df['name_lower'].str.contains(game_name)]
-    filtered_df = filtered_df.iloc[:,0:2].sort_values('name')
+    app_details_json = get_app_details(game_name)
 
-    if filtered_df.shape[0] == 0:
-        flash(f'No games match your search: {game_name}')
-        return redirect('/')
-    else:
-        return render_template('searchresults.html',
-                               column_names=filtered_df.columns.values,
-                               row_data=list(filtered_df.values.tolist()),
-                               zip=zip
-                               )
+    return render_template('appiddetails.html',
+                           app_details_json=app_details_json)
 
-#@app.route('/game/')
 
 if __name__ == '__main__':
    app.run(debug=True)
