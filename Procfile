@@ -1,2 +1,2 @@
-web: gunicorn gamers_stats.wsgi --log-file -
+web:gunicorn app:app
 ps:scale web=1
