@@ -19,7 +19,7 @@ def find():
         form_input = request.args.get('gameName')
         return redirect(url_for('game', game_name=form_input))
 
-@app.route('/game/<game_name>')
+@app.route('/search/<game_name>')
 def game(game_name):
     game_name = game_name.lower()
     filtered_df = df[df['name_lower'].str.contains(game_name)]
