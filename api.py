@@ -2,6 +2,7 @@ import pandas as pd
 import requests as re
 
 _config_file = open('config.txt', 'r')
+client_name = 'gamers-stats'
 api_key = _config_file.readline()
 
 def get_all_apps():
