@@ -1,8 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request, flash
 from api import *
 
-df = get_all_apps()
-
 app = Flask(__name__)
 app.secret_key = '125asf'
 
