@@ -19,7 +19,10 @@
 		<header><h1 id="header_title">Gamer's Stats Cave</h1></header>
 
 		<section id="main_content">
-        {% block searchbar %}{% endblock %}
+        <form action="http://127.0.0.1:5000/find" method = "post" autocomplete="off">
+			<input type="text" name="gameName" id="gameName" placeholder="Enter Game's Name..." />
+			<input type="submit" value="Search" />
+		</form>
 
 		{% for message in get_flashed_messages() %}
         <div class="alert">

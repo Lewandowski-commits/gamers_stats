@@ -8,7 +8,7 @@ app.secret_key = '125asf'
 
 @app.route('/')
 def hello_world():
-    return render_template('searchbar.html')
+    return render_template('base.html')
 
 @app.route('/find', methods=['POST', 'GET'])
 def find():
@@ -23,7 +23,7 @@ def find():
 def game(game_name):
     game_name = game_name.lower()
     filtered_df = df[df['name_lower'].str.contains(game_name)]
-    filtered_df = filtered_df.iloc[:,0:1].sort_values('name')
+    filtered_df = filtered_df.iloc[:,0:2].sort_values('name')
 
     if filtered_df.shape[0] == 0:
         flash(f'No games match your search: {game_name}')
@@ -34,6 +34,8 @@ def game(game_name):
                                row_data=list(filtered_df.values.tolist()),
                                zip=zip
                                )
+
+#@app.route('/game/')
 
 if __name__ == '__main__':
    app.run(debug=True)
