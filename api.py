@@ -1,3 +1,4 @@
+import os
 import requests as re
 
 def get_app_details(app_name):
